@@ -1,5 +1,5 @@
 // trying to eliminate magic numbers
-max_width_in_pixels = 800;
+max_width_in_pixels = 500;
 initial_starting_color = "white";
 initial_final_color = "black";
 temporary_highlight = "gray";
