@@ -1,7 +1,7 @@
 This is a simple project assigned during The Odin Project.
 Current working copy:
 
-http://www.johnrw.com/sketchpad/index.html
+https://rawgit.com/jrw-git/sketchpad_project/master/index.html
 
 It's a mouse-driven sketchpad using CSS and jQuery.
 

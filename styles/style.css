@@ -7,10 +7,13 @@ h2 {
 }
 
 button {
+  border: 2px solid black;
+  font-size: 1em;
   margin: auto;
   text-align: center;
   height: 100px;
   width: 100px;
+  padding: 0;
 }
 
 #heading {

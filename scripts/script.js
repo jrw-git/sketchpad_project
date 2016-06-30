@@ -5,7 +5,9 @@ initial_final_color = "black";
 temporary_highlight = "gray";
 initial_number_of_grids = 64;
 enabled_painting = false;
-enabled_erasing = false;
+
+// is changed to false in initial setup
+enabled_erasing = true;
 
 $(document).ready(function() {
   // keep the user from dragging the image instead of painting
@@ -15,9 +17,9 @@ $(document).ready(function() {
   size = initial_number_of_grids;
   starting_color = initial_starting_color;
   change_color(initial_final_color);
-  $('#toggle_erasing').html("Currently Painting");
   create_grid(size);
   resize_field(max_width_in_pixels, size);
+  toggle_erasing();
 
   $('#options').click(function() {
     size = prompt("Current Size: " + size);
@@ -33,15 +35,7 @@ $(document).ready(function() {
   // just use a boolean to detect if we are Erasing
   // it can piggyback on painting... if both painting and erasing, then erase.
   $('#toggle_erasing').click(function () {
-    if (enabled_erasing) {
-      final_color = initial_final_color;
-      $('#toggle_erasing').html("Currently Painting");
-    }
-    else {
-      final_color = initial_starting_color;
-      $('#toggle_erasing').html("Currently Erasing");
-    }
-    enabled_erasing = !enabled_erasing;
+    toggle_erasing();
   });
 
   $('#clear').click(function() {
@@ -56,6 +50,18 @@ $(document).ready(function() {
 
 });
 
+var toggle_erasing = function() {
+  if (enabled_erasing) {
+    final_color = initial_final_color;
+    $('#toggle_erasing').html("Painting (toggle)");
+  }
+  else {
+    final_color = initial_starting_color;
+    $('#toggle_erasing').html("Erasing (toggle)");
+  }
+  enabled_erasing = !enabled_erasing;
+}
+
 var change_color = function(new_color) {
   $('#color_change').html("Active Color: " + new_color);
   final_color = new_color;
@@ -63,6 +69,7 @@ var change_color = function(new_color) {
 
 // resize the maximum size of field but keep the existing drawing
 var resize_field = function(new_field_size, current_cell_size) {
+  $('#field_size').html("Field Size ("+new_field_size+"px)");
   $('#mainbody').css("height", max_width_in_pixels)
   $('#mainbody').css("width", max_width_in_pixels)
   new_dimension = max_width_in_pixels / current_cell_size;
@@ -74,7 +81,7 @@ var resize_field = function(new_field_size, current_cell_size) {
 // create a fresh square grid of 'size'
 // also size the individual squares so they fit evenly in the max size
 var create_grid = function (size) {
-  $('#options').html("Change size (" + size + ")");
+  $('#options').html("Number Of Cells: " + size + "");
   $blank_grid_square_div = "<div class='grid'></div>";
   $row_marker_div = "<div class='row'></div>";
   $completed_row_div = "";
