@@ -1,0 +1,40 @@
+h2 {
+  color: red;
+}
+
+#button_area {
+  height: 100px;
+}
+
+button {
+  margin: auto;
+  text-align: center;
+  height: 100px;
+  width: 100px;
+}
+
+#heading {
+  margin: auto;
+  text-align: center;
+  height: 250px;
+  width: 800px;
+}
+
+#mainbody {
+  border: 1px solid black;
+  margin: auto;
+}
+
+.grid {
+  border: 1px solid black;
+  border: none;
+  display: inline-block;
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
+}
+
+.row {
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+    border: 0px;
+}
