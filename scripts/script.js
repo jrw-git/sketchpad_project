@@ -1,6 +1,6 @@
 // trying to eliminate magic numbers
 max_width_in_pixels = 500;
-initial_starting_color = "white";
+initial_starting_color = "#b3ccff";
 initial_final_color = "black";
 temporary_highlight = "gray";
 initial_number_of_grids = 64;
@@ -12,6 +12,8 @@ enabled_erasing = true;
 $(document).ready(function() {
   // keep the user from dragging the image instead of painting
   $('#mainbody').attr('draggable', false);
+  // set the page's background to our starting color otherwise we highlight white
+  $('body').css("background-color", initial_starting_color);
   // I use the clear/create/change color functions as setup
   // they also let the user make changes with them later
   size = initial_number_of_grids;
@@ -70,8 +72,8 @@ var change_color = function(new_color) {
 // resize the maximum size of field but keep the existing drawing
 var resize_field = function(new_field_size, current_cell_size) {
   $('#field_size').html("Field Size ("+new_field_size+"px)");
-  $('#mainbody').css("height", max_width_in_pixels)
-  $('#mainbody').css("width", max_width_in_pixels)
+  $('#mainbody').css("height", max_width_in_pixels + 5)
+  $('#mainbody').css("width", max_width_in_pixels + 5)
   new_dimension = max_width_in_pixels / current_cell_size;
   $('.grid').css("height", new_dimension)
   $('.row').css("height", new_dimension)
