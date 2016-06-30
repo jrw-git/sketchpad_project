@@ -10,7 +10,8 @@ enabled_erasing = false;
 $(document).ready(function() {
   // keep the user from dragging the image instead of painting
   $('#mainbody').attr('draggable', false);
-  // I use the clear/create/change color functions as setup in addition to letting user make changes with them later
+  // I use the clear/create/change color functions as setup
+  // they also let the user make changes with them later
   size = initial_number_of_grids;
   starting_color = initial_starting_color;
   change_color(initial_final_color);
@@ -115,7 +116,7 @@ $(document).on('mouseenter', '.grid', function() {
 
 });
 
-// when the mouse leaves, keep the color enabled and make sure it's not marked as highlighted
+// when the mouse leaves, keep color enabled and unmark as highlighted
 // if it was highlighted (but not painted), unhighlight it
 $(document).on('mouseleave', '.grid', function() {
   if (enabled_painting) {
